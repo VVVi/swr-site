@@ -91,7 +91,7 @@ mutate('/api/todos', async todos => {
   const updatedTodo = await fetch('/api/todos/1', {
     method: 'PATCH',
     body: JSON.stringify({ completed: true })
-  })
+  }).then(r => r.json())
 
   // filter the list, and return it with the updated item
   const filteredTodos = todos.filter(todo => todo.id !== '1')
